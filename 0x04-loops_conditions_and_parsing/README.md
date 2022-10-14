@@ -77,3 +77,29 @@ tasks `102` and `103`.
   * Displays `Fizz` when the number is a multiple of 3.
   * Displays `Buzz` when the number is a multiple of 5.
   * Otherwise, displays the number.
+
+* **11. Read and cut**
+  * [100-read_and_cut](./100-read_and_cut): Bash script that displays the contents of the
+  `/etc/passwd` file.
+  * Displays only the username, user id, and user home directory path for each line.
+
+* **12. Tell the story of passwd**
+  * [101-tell_the_story_of_passwd](./101-tell_the_story_of_passwd): Bash script that
+  tells stories based on the contents of the `/etc/passwd` file.
+  * Displays content from the file in the format: `The user USERNAME is part of
+  the GROUP_ID gang, lives in HOME_DIRECTORY and rides COMMAND/SHELL. USER ID's
+  place is protected by the passcode PASSWORD, more info about the user here: USER ID INFO`.
+
+* **13. Let's parse Apache logs**
+  * [102-lets_parse_apache_logs](./102-lets_parse_apache_logs): Bash script that displays
+  the visitor IP along with the HTTP status code for logs read from an Apache log access file.
+  * Displays content in the format `IP HTTP_CODE`.
+  * Uses `awk`.
+
+* **14. Dig the data**
+  * [103-dig_the-data](./103-dig_the-data): Bash script that reads content from an
+  Apace log access file and groups visitors by IP and HTTP status code.
+  * Displays the grouped number of visitors to an IP address in the format
+  `OCCURRENCE_NUMBER IP HTTP_CODE`.
+  * Logs are grouped in order of greatest to lowest number of visitors.
+  * Uses `awk`.
