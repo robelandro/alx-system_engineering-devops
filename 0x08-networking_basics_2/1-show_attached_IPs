@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# displays all active IPv4 IPs
+apt-get -y install net-tools > /dev/null
+ifconfig | grep '[[:digit:]]*\.[[:digit:]]*\.[[:digit:]]*\.[[:digit:]]*' -o
