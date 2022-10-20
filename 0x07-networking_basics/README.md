@@ -1,5 +1,6 @@
 # 0x07. Networking basics #0
 
+![OCI](https://s3.amazonaws.com/alx-intranet.hbtn.io/uploads/medias/2020/9/0fc96bd99faa7941b18bcae4c5f90c6acd11791d.jpg?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIARDDGGGOUSBVO6H7D%2F20221020%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20221020T185111Z&X-Amz-Expires=86400&X-Amz-SignedHeaders=host&X-Amz-Signature=42b1de0682458afa9912c33591fb284d5ef87a55a38984a9f9dbbf70988832b0 "oci")
 ## Table of contents
 Files | Description
 ----- | -----------
