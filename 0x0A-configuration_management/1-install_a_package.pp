@@ -1,6 +1,6 @@
-# Installs puppet-lint, version 2.1.1
+# Installs flask, version 2.1.0
 
-package { 'pip3:
+package { 'pip3':
   ensure   => '2.1.0',
   provider => 'flask',
 }
