@@ -4,9 +4,7 @@
 
 # Setup the custom error page
 sudo touch /var/www/html/404.html
-sudo echo "Ceci n'est pas une page" | sudo tee -a /var/www/html/404.html
-
+sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 new_error_page="\tserver_name _;\n\terror_page 404 \/404.html;"
 sudo sed -i "s/\tserver_name _;/$new_error_page/" /etc/nginx/sites-available/default
-sudo sed -i "s/\tserver_name _;/$new_error_page/" /etc/nginx/sites-enabled/default
 sudo service nginx restart
