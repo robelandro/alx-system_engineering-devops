@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # configures an Nginx server to have a custom 404 page that contains the string 'Ceci n'est pas une page'
-./1-install_nginx_web_server
-
-# Setup the custom error page
+sudo apt-get -y update && sudo apt-get -y install nginx
+echo "Hello World!" | sudo tee /var/www/html/index.html
+# create 404.html
+./3-redirection
 sudo touch /var/www/html/404.html
 sudo echo "Ceci n'est pas une page" | sudo tee /var/www/html/404.html
 new_error_page="\tserver_name _;\n\terror_page 404 \/404.html;"
