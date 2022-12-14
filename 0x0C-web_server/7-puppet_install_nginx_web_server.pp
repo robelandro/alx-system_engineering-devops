@@ -8,5 +8,6 @@ exec {'install':
   sudo sed -i "s/server_name _;
   /server_name _;
   \n\trewrite ^\/redirect_me https:\/\/github.com\/robelandro permanent;
-  /" /etc/nginx/sites-available/default ; sudo service nginx start',
+  /" /etc/nginx/sites-available/default ;
+  sudo service nginx start',
 }
