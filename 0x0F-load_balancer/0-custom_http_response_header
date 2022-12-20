@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Configures a new Ubuntu server with a custom HTTP header response
+git clone https://github.com/robelandro/alx-system_engineering-devops.git
+cd alx-system_engineering-devops/0x0C-web_server || exit
+./4-not_found_page_404
+sudo sed -i "/listen 80 default_server;/a \\\tadd_header X-Served-By $(hostname);" /etc/nginx/sites-available/default
+sudo service nginx restart
