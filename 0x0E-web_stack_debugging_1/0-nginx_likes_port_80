@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Fixes the bug in the server
+# Changes the listening port of nginx from 8080 to 80 (http)
+
+sudo rm /etc/nginx/sites-enabled/default
+sudo ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+sudo service nginx start
