@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Shows DNS recored information
+printers ()
+{
+    printf "The subdomain is a " "$2"
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{ printf $4 }'
+    printf " record and points to "
+    dig "$2.$1" | grep -A1 'ANSWER SECTION:' | awk -F' ' '{ printf $5 }'
+    echo ""
+}
+
+if [ -z "$2" ]; then
+   for subs in "www" "lb-01" "web-01" "web-02"
+   do
+       printers "$1" "$subs"
+   done
+else
+    printers "$1" "$2"
+fi
