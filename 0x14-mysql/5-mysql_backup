@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# creates a backup of mysql server with the following requirments
+# - all databases are backedup
+# - the sqldump is named backup.sql
+# - the file will be compresed to tar.gz archive named day-month-year.tar.gz
+# - user to connect to the MySQL database must be root
+# 
+# the script accepts one argment -> passwword to connect to MySQL database
+
+mysqldump -u root -p"$1" --all-databases > backup.sql
+tar -zcvf "$(date '+%d-%m-%Y').tar.gz" backup.sql
