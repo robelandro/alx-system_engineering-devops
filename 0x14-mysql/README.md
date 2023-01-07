@@ -17,6 +17,7 @@ FLUSH PRIVILEGES;
 ```
 > Creat database and table populate date into that tabel
 ```
+SHOW DATABASES;
 CREATE DATABASE tyrell_corp;
 USE tyrell_corp;
 CREATE TABLE nexus6(id INT unsigned NOT NULL AUTO_INCREMENT, name VARCHAR(150) NOT NULL,);
@@ -42,4 +43,54 @@ GRANT REPLICATION SLAVE  ON *.* TO 'holberton_user'@'localhost
 FLUSH PRIVILEGES
 
 mysql -uholberton_user -p -e "select user,host from mysql.user;" # see users
+```
+> setup replica and source
+For source:
+
+`sudo ufw allow from replica_server_ip to any port 3306`
+Be sure to replace replica_server_ip with your replica server’s actual IP address.
+go to /etc/mysql/mysql.conf.d/mysqld.cnf
+add this line
+```
+server-id         = 1
+log_bin           = /var/log/mysql/mysql-bin.log
+binlog_do_db      = tyrell_corp
+```
+bind-address, just comment out this parameter
+
+`sudo systemctl restart mysql`
+
+`sudo mysqldump -u root tyrell_corp > db.sql`
+
+`scp db.sql ubuntu@54.85.131.160:/tmp/`
+
+`sudo mysql tyrell_corp < /tmp/db.sql`
+For replica 
+
+`sudo vim /etc/mysql/mysql.conf.d/mysqld.cnf`
+
+add 
+```
+server-id         = 2
+log_bin           = /var/log/mysql/mysql-bin.log
+binlog_do_db      = tyrell_corp
+relay-log         = /var/log/mysql/mysql-relay-bin.log
+```
+`sudo systemctl restart mysql`
+```
+sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf >> 4-mysql_configuration_replica
+sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf >> 4-mysql_configuration_primary
+```
+> start 
+`sudo mysql`
+
+```
+CHANGE MASTER TO
+MASTER_HOST='master_ip',
+MASTER_USER='replica_user',
+MASTER_PASSWORD='12345678',
+MASTER_LOG_FILE='mysql-bin.000001',
+MASTER_LOG_POS=154;
+
+START SLAVE;
 ```
