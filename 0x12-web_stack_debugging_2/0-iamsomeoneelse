@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # Prints the name of the user passed,
 # by running the command as the user itself
-su - "$1" -c 'whoami
+sudo -u "$1" whoami
