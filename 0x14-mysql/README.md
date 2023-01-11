@@ -81,3 +81,16 @@ relay-log         = /var/log/mysql/mysql-relay-bin.log
 sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf >> 4-mysql_configuration_replica
 sudo cat /etc/mysql/mysql.conf.d/mysqld.cnf >> 4-mysql_configuration_primary
 ```
+> start 
+`sudo mysql`
+
+```
+CHANGE MASTER TO
+MASTER_HOST='master_ip',
+MASTER_USER='replica_user',
+MASTER_PASSWORD='12345678',
+MASTER_LOG_FILE='mysql-bin.000001',
+MASTER_LOG_POS=154;
+
+START SLAVE;
+```
