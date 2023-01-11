@@ -1,23 +1,17 @@
-Resources
-Read or watch:
-
-What is a primary-replica cluster
-MySQL primary replica setup
-Build a robust database backup strategy
-man or help:
-
-mysqldump
-Learning Objectives
-At the end of this project, you are expected to be able to explain to anyone, without the help of Google:
-
-General
-What is the main role of a database
-What is a database replica
-What is the purpose of a database replica
-Why database backups need to be stored in different physical locations
-What operation should you regularly perform to make sure that your database backup strategy actually works
-Copyright - Plagiarism
-You are tasked to come up with solutions for the tasks below yourself to meet with the above learning objectives.
-You will not be able to meet the objectives of this or any following project by copying and pasting someone else’s work.
-You are not allowed to publish any content of this project.
-Any form of plagiarism is strictly forbidden and will result in removal from the program.
+# mysql
+> set up 
+1.copy public [Signature](https://dev.mysql.com/doc/refman/8.0/en/replication-howto-repuser.html)
+2.save on signature.key
+```
+sudo apt-key add signature.key
+sudo sh -c 'echo "deb http://repo.mysql.com/apt/ubuntu bionic mysql-5.7" >> /etc/apt/sources.list.d/mysql.list'
+sudo apt-get update
+sudo apt install -f mysql-client=5.7* mysql-community-server=5.7* mysql-server=5.7*
+```
+> setup username and password
+```
+sudo mysql
+CREATE USER 'holberton_user'@'localhost' IDENTIFIED BY 'projectcorrection280hbtn';
+GRANT REPLICATION CLIENT ON *.* TO 'holberton_user'@'localhost
+FLUSH PRIVILEGES;
+```
