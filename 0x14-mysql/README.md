@@ -17,6 +17,7 @@ FLUSH PRIVILEGES;
 ```
 > Creat database and table populate date into that tabel
 ```
+SHOW DATABASES;
 CREATE DATABASE tyrell_corp;
 USE tyrell_corp;
 CREATE TABLE nexus6(id INT unsigned NOT NULL AUTO_INCREMENT, name VARCHAR(150) NOT NULL,);
