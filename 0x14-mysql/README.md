@@ -32,3 +32,14 @@ SELECT * FROM nexus6;
 +----+-------+
 |  1 | Leon  |
 +----+-------+
+> creat replica user
+```
+mysql -uholberton_user -p -e "select user,host from mysql.user;" # see users
+
+sudo mysql
+CREATE USER 'replica_user'@'%' IDENTIFIED BY '12345678';
+GRANT REPLICATION SLAVE  ON *.* TO 'holberton_user'@'localhost
+FLUSH PRIVILEGES
+
+mysql -uholberton_user -p -e "select user,host from mysql.user;" # see users
+```
