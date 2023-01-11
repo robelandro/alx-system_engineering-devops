@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# Script install ufw on ubuntu
+sudo apt-get -y update && sudo apt-get -y install ufw
+# setting rule allow only on (SSH) port 22,(HTTPS SSL) 443,(HTTP) 80
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+sudo ufw allow 22/tcp
+sudo ufw allow 443/tcp
+sudo ufw allow 80/tcp
+sudo ufw enable
