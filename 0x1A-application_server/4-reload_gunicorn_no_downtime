@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Get the process ID of the running Gunicorn process
 PID=$(cat /run/gunicorn.pid)
