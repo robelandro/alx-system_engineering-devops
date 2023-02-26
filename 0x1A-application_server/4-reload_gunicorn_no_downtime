@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+# gracefully restart gunicorn workers
+kill -SIGHUP "$(pgrep gunicorn | head -n 1)"
