@@ -1,7 +1,2 @@
 #!/usr/bin/env bash
-
-# Get the process ID of the running Gunicorn process
-PID=$(cat /run/gunicorn.pid)
-
-# Reload the Gunicorn process gracefully
-kill -HUP $PID
+kill -SIGHUP "$(pgrep gunicorn | head -n 1)"
